@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<noscript>This page requires JavaScript to work properly</noscript>
 	<script type="text/javascript">
-		operations = ["+", "*"];
+		operations = ["+", "*", "-"];
 		function getRandom() {
 			number = Math.ceil(Math.random() * 10);
 			return number;
@@ -22,15 +22,26 @@
 			result = document.getElementById("result");
 			result.value = "";
 			operator = document.getElementById("operator");
-			if (first < second) {
-				operator.innerHTML = operations[0];
-			}else{
-				operator.innerHTML = operations[1];
-			}
+			operator.innerHTML = operations[Math.ceil(Math.random()*operations.length-1)]
+			// if (first < second) {
+			// 	operator.innerHTML = operations[0];
+			// }else{
+			// 	operator.innerHTML = operations[1];
+			// }
 			
 		}
 
+		function checkOperation(operator, x, y, z) {
+			if(operator=="+"){
+				return (x+y)==z
+			}
+			else if(operator=='-'){
+				return (x-y)==z
+			}
+		}
+
 		function check(){
+			operator = document.getElementById("operator").innerHTML;
 			span1Elem = document.getElementById("first_num");
 			value1 = parseInt(span1Elem.innerHTML);
 			span2Elem = document.getElementById("second_num");
@@ -39,7 +50,11 @@
 			value3 = parseInt(result.value);
 			display = document.getElementById("output");
 			
-			if(value3 == (value1 + value2)){				
+			checker = checkOperation(operator, value1, value2, value3)
+			// if(value3 == (value1 + value2)){				
+			// 	display.innerHTML = "<img src='images/correct.png' /> Great, you entered the correct result.";
+			// }
+			if(checker){
 				display.innerHTML = "<img src='images/correct.png' /> Great, you entered the correct result.";
 			}
 			else{
