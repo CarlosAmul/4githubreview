@@ -1,9 +1,13 @@
 Answer the following, add your answer below each question:
 
 1- How many commits have been made to the repository you cloned?
+Answer: 10
 
 2- How many branches does it have?
+Answer: 2
 
 3- What is the ID of the commit in which the author added styles?
+Answer: 02c4216b257ed21e36ffc45980cffcfd79103e43
 
 4- How many lines of code were added between the second and the third commit?
+Answer: 20 (9 for part1 questions & 11 for part2 questions)
